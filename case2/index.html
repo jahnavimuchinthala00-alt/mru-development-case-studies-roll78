@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student Services Homepage - MRU</title>
+    <style>
+        :root {
+            --primary-color: #002b49;
+            --accent-color: #ff9900;
+            --bg-color: #f8f9fa;
+            --card-bg: #ffffff;
+        }
+        body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; margin: 0; background-color: var(--bg-color); color: #333; }
+        header { background: var(--primary-color); color: white; padding: 30px 20px; text-align: center; }
+        header h1 { margin: 0; font-size: 2.2rem; }
+        header p { margin: 5px 0 0; color: var(--accent-color); font-weight: 600; }
+        
+        .services-container { max-width: 1200px; margin: 40px auto; display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 20px; padding: 0 20px; }
+        
+        .card { background: var(--card-bg); border-radius: 8px; padding: 25px; box-shadow: 0 4px 6px rgba(0,0,0,0.05); transition: transform 0.3s ease, box-shadow 0.3s ease; border-top: 4px solid var(--accent-color); }
+        .card:hover { transform: translateY(-5px); box-shadow: 0 10px 20px rgba(0,0,0,0.1); }
+        .card h3 { color: var(--primary-color); margin-top: 0; }
+        .card p { color: #666; font-size: 0.95rem; line-height: 1.5; }
+        .card a { display: inline-block; margin-top: 15px; color: var(--primary-color); text-decoration: none; font-weight: bold; transition: color 0.2s; }
+        .card a:hover { color: var(--accent-color); }
+
+        footer { text-align: center; padding: 20px; background: #222; color: #aaa; margin-top: 50px; font-size: 0.9rem; }
+    </style>
+</head>
+<body>
+
+    <header>
+        <h1>Malla Reddy University</h1>
+        <p>Student Services Homepage | User Roll No: 78</p>
+    </header>
+
+    <div class="services-container">
+        <div class="card">
+            <h3>📚 Library Services</h3>
+            <p>Access digital archives, issue status, textbook reservations, and online journals across global platforms.</p>
+            <a href="#">Explore Library &rarr;</a>
+        </div>
+        <div class="card">
+            <h3>🚌 Transport Tracking</h3>
+            <p>Real-time bus route schedules, live tracking links, and pass registrations for campus transit.</p>
+            <a href="#">View Routes &rarr;</a>
+        </div>
+        <div class="card">
+            <h3>🏨 Hostel Accommodation</h3>
+            <p>Room allocation status, mess menus, in-out gate pass applications, and maintenance grievance logging.</p>
+            <a href="#">Hostel Portal &rarr;</a>
+        </div>
+        <div class="card">
+            <h3>💼 Placement Cell</h3>
+            <p>Upcoming recruitment drives, resume builders, training schedules, and internship eligibility trackers.</p>
+            <a href="#">Placement Hub &rarr;</a>
+        </div>
+        <div class="card">
+            <h3>📝 Examination Info</h3>
+            <p>Grade cards, revaluation application links, backlog tracking, and cumulative grade point metrics.</p>
+            <a href="#">Exam Portal &rarr;</a>
+        </div>
+    </div>
+
+    <footer>
+        <p>&copy; 2026 Malla Reddy University. Designed for Student ID: 78</p>
+    </footer>
+
+</body>
+</html>
