@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Malla Reddy University - Student Dashboard</title>
+    <!-- Bootstrap 5 CDN -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body class="bg-light">
+
+    <!-- Navbar Component -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="#">MRU Dashboard (Roll: 78)</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item"><a class="nav-link active" href="#">Home</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#">Timetable</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#">Fees</a></li>
+                    <li class="nav-item"><a class="nav-link text-warning" href="#">Profile (ID: 78)</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Main Container -->
+    <div class="container my-4">
+
+        <!-- Alert Component -->
+        <div class="alert alert-info alert-dismissible fade show" role="alert">
+            <strong>Welcome back!</strong> Your fee reminder notice for Semester Clearance is now live. Check details below.
+            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+        </div>
+
+        <!-- Cards Row / Grid System -->
+        <div class="row text-center mb-4">
+            <div class="col-md-4 mb-3">
+                <div class="card shadow-sm border-primary">
+                    <div class="card-body">
+                        <h5 class="card-title text-primary">Attendance Overview</h5>
+                        <p class="card-text display-6">84%</p>
+                        <a href="#" class="btn btn-sm btn-outline-primary">View Details</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4 mb-3">
+                <div class="card shadow-sm border-success">
+                    <div class="card-body">
+                        <h5 class="card-title text-success">Fee Dues Status</h5>
+                        <p class="card-text display-6 text-success">Cleared</p>
+                        <a href="#" class="btn btn-sm btn-outline-success">Download Receipt</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4 mb-3">
+                <div class="card shadow-sm border-warning">
+                    <div class="card-body">
+                        <h5 class="card-title text-warning">Upcoming Exams</h5>
+                        <p class="card-text fs-5">Minor-2 in 5 Days</p>
+                        <a href="#" class="btn btn-sm btn-outline-warning">View Schedule</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Tables & Timetable Schedule Section -->
+        <div class="row">
+            <div class="col-lg-8 mb-4">
+                <div class="card shadow-sm">
+                    <div class="card-header bg-secondary text-white">Today's Class Schedule</div>
+                    <div class="card-body">
+                        <table class="table table-striped">
+                            <thead>
+                                <tr>
+                                    <th>Time</th>
+                                    <th>Course Code</th>
+                                    <th>Subject Name</th>
+                                    <th>Room</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>09:30 AM - 10:20 AM</td>
+                                    <td>CS201</td>
+                                    <td>Web Technologies</td>
+                                    <td>LH-402</td>
+                                </tr>
+                                <tr>
+                                    <td>10:20 AM - 11:10 AM</td>
+                                    <td>CS202</td>
+                                    <td>Data Structures & Algorithms</td>
+                                    <td>LH-402</td>
+                                </tr>
+                                <tr>
+                                    <td>11:20 AM - 01:00 PM</td>
+                                    <td>CS205L</td>
+                                    <td>Web Lab (Roll 78 Batch)</td>
+                                    <td>Lab-3</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Carousel Component -->
+            <div class="col-lg-4 mb-4">
+                <div class="card shadow-sm">
+                    <div class="card-header bg-dark text-white">Campus Highlights</div>
+                    <div class="card-body p-0">
+                        <div id="campusCarousel" class="carousel slide" data-bs-ride="carousel">
+                            <div class="carousel-inner">
+                                <div class="carousel-item active">
+                                    <div class="p-5 text-center bg-light text-dark">
+                                        <h5>MRU Tech Fest 2026</h5>
+                                        <p>Registrations open for hackathons.</p>
+                                    </div>
+                                </div>
+                                <div class="carousel-item">
+                                    <div class="p-5 text-center bg-secondary text-white">
+                                        <h5>Placement Drive</h5>
+                                        <p>Top MNC corporate visits scheduled.</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    <!-- Bootstrap JS Bundle -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
