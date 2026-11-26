@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Attendance & Exam Eligibility Checker</title>
+    <style>
+        body { font-family: Arial, sans-serif; background: #eef2f3; margin: 0; padding: 20px; }
+        .box { max-width: 600px; background: white; margin: 30px auto; padding: 30px; border-radius: 8px; box-shadow: 0 4px 10px rgba(0,0,0,0.1); }
+        h2 { color: #2c3e50; text-align: center; }
+        label { display: block; margin-top: 15px; font-weight: bold; }
+        input { width: 100%; padding: 10px; margin-top: 5px; border: 1px solid #bdc3c7; border-radius: 4px; box-sizing: border-box; }
+        button { margin-top: 20px; width: 100%; background: #2980b9; color: white; border: none; padding: 12px; font-size: 1rem; border-radius: 4px; cursor: pointer; }
+        button:hover { background: #1f618d; }
+        #results { margin-top: 25px; padding: 15px; background: #f9f9f9; border-left: 5px solid #2980b9; border-radius: 4px; }
+    </style>
+</head>
+<body>
+
+<div class="box">
+    <h2>Exam Eligibility Checker</h2>
+    <p><strong>Configured for:</strong> Roll Number 78</p>
+
+    <label for="name">Student Name:</label>
+    <input type="text" id="name" value="Student 78">
+
+    <label for="attendance">Attendance Percentage (%):</label>
+    <input type="number" id="attendance" min="0" max="100" value="78">
+
+    <label for="internalMarks">Internal Assessment Score (out of 30):</label>
+    <input type="number" id="internalMarks" min="0" max="30" value="22">
+
+    <button onclick="checkEligibility()">Check Eligibility Status</button>
+
+    <div id="results">
+        <em>Enter details and click the button to process records.</em>
+    </div>
+</div>
+
+<script>
+    function checkEligibility() {
+        const name = document.getElementById('name').value;
+        const attendance = parseFloat(document.getElementById('attendance').value);
+        const internalMarks = parseFloat(document.getElementById('internalMarks').value);
+
+        // Array representing multiple exam evaluations for batch student check simulation
+        const exams = [
+            { name: "Minor-1 Exam", minAttendance: 65, minMarks: 10 },
+            { name: "Minor-2 Exam", minAttendance: 70, minMarks: 12 },
+            { name: "Endterm Exam", minAttendance: 75, minMarks: 15 }
+        ];
+
+        let outputHTML = `<h3>Evaluation Report for ${name} (Roll: 78)</h3>`;
+        outputHTML += `<ul>`;
+
+        // Loop through multiple records / exam types
+        for (let i = 0; i < exams.length; i++) {
+            let exam = exams[i];
+            let isEligible = true;
+            let reasons = [];
+
+            if (attendance < exam.minAttendance) {
+                isEligible = false;
+                reasons.append ? null : reasons.push(`Low Attendance (${attendance}% < ${exam.minAttendance}%)`);
+            }
+            if (internalMarks < exam.minMarks) {
+                isEligible = false;
+                reasons.push(`Low Internal Marks (${internalMarks} < ${exam.minMarks})`);
+            }
+
+            if (isEligible) {
+                outputHTML += `<li>✅ <strong>${exam.name}:</strong> <span style="color:green; font-weight:bold;">ELIGIBLE</span></li>`;
+            } else {
+                outputHTML += `<li>❌ <strong>${exam.name}:</strong> <span style="color:red; font-weight:bold;">NOT ELIGIBLE</span> (${reasons.join(', ')})</li>`;
+            }
+        }
+
+        outputHTML += `</ul>`;
+        document.getElementById('results').innerHTML = outputHTML;
+    }
+</script>
+
+</body>
+</html>
