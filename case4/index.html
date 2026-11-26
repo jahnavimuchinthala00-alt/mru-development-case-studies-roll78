@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MRU Student Service Portal</title>
+    <style>
+        body { font-family: Arial, sans-serif; background: #f2f4f8; margin: 0; padding: 20px; }
+        .portal-box { max-width: 650px; background: white; margin: 20px auto; padding: 30px; border-radius: 8px; box-shadow: 0 4px 12px rgba(0,0,0,0.08); }
+        h2 { color: #333; text-align: center; }
+        .form-group { margin-bottom: 15px; }
+        label { display: block; font-weight: bold; margin-bottom: 5px; }
+        input, select, textarea { width: 100%; padding: 10px; border: 1px solid #ccc; border-radius: 4px; box-sizing: border-box; }
+        button { background: #27ae60; color: white; border: none; padding: 12px 20px; border-radius: 4px; cursor: pointer; width: 100%; font-size: 1rem; }
+        button:hover { background: #219653; }
+        #feedback { margin-top: 20px; padding: 12px; border-radius: 4px; display: none; }
+        .success { background: #e8f8f5; color: #117a65; border: 1px solid #a3e4d7; }
+        .error { background: #f5b7b1; color: #78281f; border: 1px solid #f9ebea; }
+    </style>
+</head>
+<body>
+
+<div class="portal-box">
+    <h2>Student Service Portal</h2>
+    <p style="text-align:center; color: #666;">Service Request Form - Roll Number: 78</p>
+
+    <div class="form-group">
+        <label for="serviceType">Select Service Request:</label>
+        <select id="serviceType" onchange="toggleFields()">
+            <option value="leave">Leave Application</option>
+            <option value="bonafide">Bonafide Certificate</option>
+            <option value="elective">Elective Course Registration</option>
+        </select>
+    </div>
+
+    <div class="form-group">
+        <label for="studentName">Student Name:</label>
+        <input type="text" id="studentName" value="Student Name (Roll 78)">
+    </div>
+
+    <div class="form-group" id="dynamicFieldContainer">
+        <label for="reasonInput" id="dynamicLabel">Reason for Leave:</label>
+        <textarea id="reasonInput" placeholder="Enter details here..."></textarea>
+    </div>
+
+    <button onclick="submitRequest()">Submit Request</button>
+
+    <div id="feedback"></div>
+</div>
+
+<script>
+    // Array storing previously processed service logs dynamically
+    let requestHistory = [];
+
+    function toggleFields() {
+        const service = document.getElementById('serviceType').value;
+        const label = document.getElementById('dynamicLabel');
+        const inputContainer = document.getElementById('dynamicFieldContainer');
+
+        if (service === 'leave') {
+            label.innerText = "Reason for Leave:";
+            inputContainer.innerHTML = `<label for="reasonInput">Reason for Leave:</label><textarea id="reasonInput" placeholder="Provide medical or personal reason..."></textarea>`;
+        } else if (service === 'bonafide') {
+            label.innerText = "Purpose of Bonafide Certificate:";
+            inputContainer.innerHTML = `<label for="reasonInput">Purpose (e.g., Bank Loan, Passport):</label><input type="text" id="reasonInput" placeholder="Enter purpose...">`;
+        } else if (service === 'elective') {
+            label.innerHTML = `<label for="reasonInput">Select Elective Course Code:</label>
+                <select id="reasonInput">
+                    <option value="CS901">CS901 - Advanced Web Development</option>
+                    <option value="CS902">CS902 - Cloud Computing Fundamentals</option>
+                    <option value="CS903">CS903 - Generative AI Applications</option>
+                </select>`;
+        }
+    }
+
+    function submitRequest() {
+        const type = document.getElementById('serviceType').value;
+        const name = document.getElementById('studentName').value;
+        const detailInput = document.getElementById('reasonInput');
+        const feedback = document.getElementById('feedback');
+
+        // Validation using JS conditional branches
+        if (!name.trim() || !detailInput.value.trim()) {
+            feedback.className = "error";
+            feedback.style.display = "block";
+            feedback.innerText = "Validation Error: All fields must be completely filled out before submitting!";
+            return;
+        }
+
+        // Push into application array log
+        const newRequest = {
+            rollNumber: "78",
+            service: type,
+            details: detailInput.value,
+            timestamp: new Date().toLocaleTimeString()
+        };
+        requestHistory.push(newRequest);
+
+        // Immediate visual feedback DOM manipulation
+        feedback.className = "success";
+        feedback.style.display = "block";
+        feedback.innerHTML = `✅ Success! Your <strong>${type.toUpperCase()}</strong> request has been successfully submitted and logged. (Total requests logged in session: ${requestHistory.length})`;
+    }
+</script>
+
+</body>
+</html>
