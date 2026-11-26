@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Malla Reddy University - Student Helpdesk & Circular Portal</title>
+    <style>
+        body { font-family: Arial, sans-serif; margin: 0; padding: 0; background-color: #f4f6f9; color: #333; }
+        header { background-color: #8B0000; color: white; padding: 20px; text-align: center; }
+        nav { background-color: #333; color: white; padding: 10px; text-align: center; }
+        nav a { color: white; margin: 0 15px; text-decoration: none; }
+        .container { max-width: 1100px; margin: 20px auto; padding: 20px; background: white; border-radius: 8px; box-shadow: 0 2px 4px rgba(0,0,0,0.1); }
+        .section { margin-bottom: 30px; }
+        h2 { border-bottom: 2px solid #8B0000; padding-bottom: 5px; color: #8B0000; }
+        ul { list-style-type: none; padding: 0; }
+        ul li { padding: 8px 0; border-bottom: 1px solid #eee; }
+        form label { display: block; margin-top: 10px; font-weight: bold; }
+        form input, form textarea, form select { width: 100%; padding: 8px; margin-top: 5px; border: 1px solid #ccc; border-radius: 4px; box-sizing: border-box; }
+        form button { margin-top: 15px; background-color: #8B0000; color: white; border: none; padding: 10px 20px; border-radius: 4px; cursor: pointer; }
+        form button:hover { background-color: #a00; }
+        footer { text-align: center; padding: 15px; background-color: #333; color: white; margin-top: 30px; }
+    </style>
+</head>
+<body>
+
+    <header>
+        <h1>Malla Reddy University</h1>
+        <p>Student Helpdesk & Circular Portal (Roll No: 78)</p>
+    </header>
+
+    <nav>
+        <a href="#circulars">Circulars</a>
+        <a href="#notifications">Notifications</a>
+        <a href="#downloads">Downloads</a>
+        <a href="#inquiry">Helpdesk Enquiry</a>
+    </nav>
+
+    <div class="container">
+        <section id="circulars" class="section">
+            <h2>Academic Circulars</h2>
+            <ul>
+                <li>📢 Circular: Commencement of Class Work for Even Semester - Read More</li>
+                <li>📢 Guidelines regarding Mid-Term Examinations and Internal Assessments</li>
+                <li>📢 Fee Payment Deadline Extension Notice for Roll No Range 1-100</li>
+            </ul>
+        </section>
+
+        <section id="notifications" class="section">
+            <h2>Examination Notifications</h2>
+            <ul>
+                <li>📝 Minor-1 Exam Time Table and Seating Arrangement Released</li>
+                <li>📝 End-Term Hall Ticket Download Instructions</li>
+            </ul>
+        </section>
+
+        <section id="downloads" class="section">
+            <h2>Downloadable Resources</h2>
+            <ul>
+                <li>📥 Academic Calendar 2026-27 (<a href="#">Download PDF</a>)</li>
+                <li>📥 Bonafide Certificate Application Template (<a href="#">Download DOC</a>)</li>
+            </ul>
+        </section>
+
+        <section id="inquiry" class="section">
+            <h2>Student Enquiry Form</h2>
+            <form action="#" method="POST">
+                <label for="name">Full Name:</label>
+                <input type="text" id="name" name="name" value="Student Roll-78" required>
+
+                <label for="roll">Roll Number:</label>
+                <input type="text" id="roll" name="roll" value="78" readonly required>
+
+                <label for="category">Query Category:</label>
+                <select id="category" name="category">
+                    <option value="academic">Academic Circulars</option>
+                    <option value="exam">Examinations</option>
+                    <option value="general">General Helpdesk</option>
+                </select>
+
+                <label for="message">Your Message / Query:</label>
+                <textarea id="message" name="message" rows="4" required></textarea>
+
+                <button type="submit">Submit Enquiry</button>
+            </form>
+        </section>
+    </div>
+
+    <footer>
+        <p>&copy; 2026 Malla Reddy University. All rights reserved.</p>
+    </footer>
+
+</body>
+</html>
